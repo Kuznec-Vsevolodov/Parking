@@ -52,7 +52,7 @@ class PlaceListView(APIView):
     def post(self, request, *args, **kwargs):
         serializer = PlaceSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        self.perform_create(serializer)
+        serializer.save()
         return Response(serializer.data)
 
 class SectorDetailView(APIView):
